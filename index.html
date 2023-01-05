@@ -22,17 +22,17 @@
           <div class="dropdown">
             <a class="dropbtn">Collections</a>
             <div class="dropdown-content">
-              <a href="order.html">Men</a>
-              <a href="order.html">Women</a>
-              <a href="order.html">kid</a>
+              <a :href="compStore">Men</a>
+              <a :href="compStore">Women</a>
+              <a :href="compStore">kid</a>
             </div>
           </div>
           <a href="#">About</a>
           <a href="#">Contact</a>
         </div>
-        <h1>{{titleWeb}}</h1>
+        <h1>{{titleWeb}}<span :style="{color:colorRed}">.</span></h1>
         <div class="nav-right">
-          <a href="#">Store</a>
+          <a :href="compStore">Store</a>
           <a href="#">Account</a>
           <a href="#">Bag | 0</a>
         </div>
@@ -41,13 +41,13 @@
       <header>
         <div class="hero-image">
           <div class="hero-text">
-            <h1>{{titleWeb}}</h1>
+            <h1>{{titleWeb}}<span :style="{color:colorRed}">.</span></h1>
             <p>
               Making <span class="box-text">fashion</span> accessible to
               <span class="box-text">everyone.</span>
             </p>
             <div class="button-order">
-              <a href="order.html">SHOP NOW</a>
+              <a :href="compStore">SHOP NOW</a>
             </div>
           </div>
         </div>
@@ -60,28 +60,28 @@
               <h2>Latest Arrivals</h2>
               <div>
                 <p>Our latest product to support your daily.</p>
-                <a class="btn-more" href="product.html">More>></a>
+                <a class="btn-more" :href="compStore">More>></a>
               </div>
             </div>
             <div class="product">
-              <img src="images/woman1.jpg" alt="sneaker" />
+              <img :src="latestArrivalsImg[0]" :alt="altTextLatest" />
               <p>Red Blazer</p>
-              <a class="btn-detail" href="detail.html">Details</a>
+              <a class="btn-detail" :href="compOrder">Details</a>
             </div>
             <div class="product">
-              <img src="images/jacket-jeans.jpg" alt="sneaker" />
+              <img :src="latestArrivalsImg[1]" :alt="altTextLatest" />
               <p>Black Shirt</p>
-              <a class="btn-detail" href="detail.html">Details</a>
+              <a class="btn-detail" :href="compOrder">Details</a>
             </div>
             <div class="product">
-              <img src="images/jacket2.jpg" alt="sneaker" />
+              <img :src="latestArrivalsImg[2]" :alt="altTextLatest" />
               <p>Jacket Jeans</p>
-              <a class="btn-detail" href="detail.html">Details</a>
+              <a class="btn-detail" :href="compOrder">Details</a>
             </div>
             <div class="product">
-              <img src="images/woman2.jpg" alt="sneaker" />
+              <img :src="latestArrivalsImg[3]" :alt="altTextLatest" />
               <p>Cream Blazer</p>
-              <a class="btn-detail" href="detail.html">Details</a>
+              <a class="btn-detail" :href="compOrder">Details</a>
             </div>
           </div>
         </section>
@@ -89,30 +89,38 @@
           <div class="explore-collections">
             <div class="title-between exp-title">
               <h2>Explore Collections</h2>
-              <p>
-                Looking for exclusive collections for all from men to children.
-              </p>
+              <p>Looking for exclusive collections for all from men to Kid.</p>
             </div>
 
             <div class="item men">
-              <img class="img-item" src="images/man-collection.jpg" alt="men" />
-              <a class="btn-detail" href="detail.html">Men</a>
+              <img
+                class="img-item"
+                :src="collectionsImg[0]"
+                :alt="altTextCollections[0]"
+              />
+              <a class="btn-detail" href="detail.html"
+                >{{altTextCollections[0]}}</a
+              >
             </div>
             <div class="item women">
               <img
                 class="img-item"
-                src="images/women-collection.jpg"
-                alt="men"
+                :src="collectionsImg[1]"
+                :alt="altTextCollections[1]"
               />
-              <a class="btn-detail" href="detail.html">Women</a>
+              <a class="btn-detail" href="detail.html"
+                >{{altTextCollections[1]}}</a
+              >
             </div>
             <div class="item kid">
               <img
                 class="img-item"
-                src="images/child-collection.jpg"
-                alt="men"
+                :src="collectionsImg[2]"
+                :alt="altTextCollections[2]"
               />
-              <a class="btn-detail" href="detail.html">Kid</a>
+              <a class="btn-detail" href="detail.html"
+                >{{altTextCollections[2]}}</a
+              >
             </div>
           </div>
         </section>
@@ -129,9 +137,9 @@
 
         <section>
           <div class="cloth-season">
-            <img src="images/winter.jpg" alt="winter" />
-            <p>Winter Is Coming</p>
-            <a href="#">Shop Now >></a>
+            <img :src="seasonClothImg" :alt="seasonClothAlt" />
+            <p>{{seasonClothText}}</p>
+            <a :href="compStore">Shop Now >></a>
           </div>
         </section>
 
@@ -149,10 +157,26 @@
         <section class="ofc-online-stores">
           <h2>Official Online Store</h2>
           <div class="img-ofc-store">
-            <img src="images/tokopedia.png" alt="" class="ofc-store" />
-            <img src="images/shopee.png" alt="" class="ofc-store" />
-            <img src="images/Lazada.png" alt="" class="ofc-store" />
-            <img src="images/Bukalapak.png" alt="" class="ofc-store" />
+            <img
+              :src="storeOnlineImg[0]"
+              :alt="storeOnlineAlt"
+              class="ofc-store"
+            />
+            <img
+              :src="storeOnlineImg[1]"
+              :alt="storeOnlineAlt"
+              class="ofc-store"
+            />
+            <img
+              :src="storeOnlineImg[2]"
+              :alt="storeOnlineAlt"
+              class="ofc-store"
+            />
+            <img
+              :src="storeOnlineImg[3]"
+              :alt="storeOnlineAlt"
+              class="ofc-store"
+            />
           </div>
         </section>
 
@@ -170,43 +194,45 @@
           <ul class="section-footer sosmed">
             <li>Follow us on</li>
             <li>
-              <a href="#"><img src="images/twitter.png" alt="twitter" /></a>
+              <a href="#"><img :src="socmedImg[0]" :alt="socmedAlt[0]" /></a>
             </li>
             <li>
-              <a href="#"><img src="images/facebook.png" alt="facebook" /></a>
+              <a href="#"><img :src="socmedImg[1]" :alt="socmedAlt[1]" /></a>
             </li>
             <li>
-              <a href="#"><img src="images/instagram.png" alt="instagram" /></a>
+              <a href="#"><img :src="socmedImg[2]" :alt="socmedAlt[2]" /></a>
             </li>
             <li>
-              <a href="#"><img src="images/pinterest.png" alt="pinterest" /></a>
+              <a href="#"><img :src="socmedImg[3]" :alt="socmedAlt[3]" /></a>
             </li>
           </ul>
           <ul class="section-footer">
-            <li>{{titleWeb}}</li>
+            <li>{{titleWeb}}<span :style="{color:colorRed}">.</span></li>
             <li>Jl. Sawangan No.xx</li>
             <li>avenue@info.com</li>
             <li>(021) 2552-xxxx</li>
           </ul>
 
           <ul class="section-footer">
-            <li><a href="order.html">About</a></li>
-            <li><a href="order.html">Collections</a></li>
-            <li><a href="order.html">contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a :href="compStore">Collections</a></li>
+            <li><a href="#">contact</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a href="order.html">Men</a></li>
-            <li><a href="order.html">Women</a></li>
-            <li><a href="order.html">Kid</a></li>
+            <li><a :href="compStore">Men</a></li>
+            <li><a :href="compStore">Women</a></li>
+            <li><a :href="compStore">Kid</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a href="order.html">Tokopedia</a></li>
-            <li><a href="order.html">Bukalapak</a></li>
-            <li><a href="order.html">Shopee</a></li>
-            <li><a href="order.html">Lazada</a></li>
+            <li><a :href="compStore">Tokopedia</a></li>
+            <li><a :href="compStore">Bukalapak</a></li>
+            <li><a :href="compStore">Shopee</a></li>
+            <li><a :href="compStore">Lazada</a></li>
           </ul>
         </div>
-        <p class="title-footer">{{titleWeb}}</p>
+        <p class="title-footer">
+          {{titleWeb}}<span :style="{color:colorRed}">.</span>
+        </p>
         <p>Copyright © 2021 MinumanQ. All Rights Reserved.</p>
       </footer>
 
