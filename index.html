@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Avenue</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+  </head>
+  <body>
+    <div class="container" id="content">
+      <nav>
+        <div class="nav-right">
+          <a href="#">Home</a>
+          <div class="dropdown">
+            <a class="dropbtn">Collections</a>
+            <div class="dropdown-content">
+              <a href="order.html">Men</a>
+              <a href="order.html">Women</a>
+              <a href="order.html">kid</a>
+            </div>
+          </div>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <h1>{{titleWeb}}</h1>
+        <div class="nav-right">
+          <a href="#">Store</a>
+          <a href="#">Account</a>
+          <a href="#">Bag | 0</a>
+        </div>
+      </nav>
+
+      <header>
+        <div class="hero-image">
+          <div class="hero-text">
+            <h1>{{titleWeb}}</h1>
+            <p>
+              Making <span class="box-text">fashion</span> accessible to
+              <span class="box-text">everyone.</span>
+            </p>
+            <div class="button-order">
+              <a href="order.html">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section>
+          <div class="latest-arrivals">
+            <div class="title-between">
+              <h2>Latest Arrivals</h2>
+              <div>
+                <p>Our latest product to support your daily.</p>
+                <a class="btn-more" href="product.html">More>></a>
+              </div>
+            </div>
+            <div class="product">
+              <img src="images/woman1.jpg" alt="sneaker" />
+              <p>Red Blazer</p>
+              <a class="btn-detail" href="detail.html">Details</a>
+            </div>
+            <div class="product">
+              <img src="images/jacket-jeans.jpg" alt="sneaker" />
+              <p>Black Shirt</p>
+              <a class="btn-detail" href="detail.html">Details</a>
+            </div>
+            <div class="product">
+              <img src="images/jacket2.jpg" alt="sneaker" />
+              <p>Jacket Jeans</p>
+              <a class="btn-detail" href="detail.html">Details</a>
+            </div>
+            <div class="product">
+              <img src="images/woman2.jpg" alt="sneaker" />
+              <p>Cream Blazer</p>
+              <a class="btn-detail" href="detail.html">Details</a>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="explore-collections">
+            <div class="title-between exp-title">
+              <h2>Explore Collections</h2>
+              <p>
+                Looking for exclusive collections for all from men to children.
+              </p>
+            </div>
+
+            <div class="item men">
+              <img class="img-item" src="images/man-collection.jpg" alt="men" />
+              <a class="btn-detail" href="detail.html">Men</a>
+            </div>
+            <div class="item women">
+              <img
+                class="img-item"
+                src="images/women-collection.jpg"
+                alt="men"
+              />
+              <a class="btn-detail" href="detail.html">Women</a>
+            </div>
+            <div class="item kid">
+              <img
+                class="img-item"
+                src="images/child-collection.jpg"
+                alt="men"
+              />
+              <a class="btn-detail" href="detail.html">Kid</a>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="quotes">
+            <p>
+              "Your personal style is the ultimate form of self-expression, so
+              don't be afraid to show the world who you are through the way you
+              dress."
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <div class="cloth-season">
+            <img src="images/winter.jpg" alt="winter" />
+            <p>Winter Is Coming</p>
+            <a href="#">Shop Now >></a>
+          </div>
+        </section>
+
+        <section class="our-store">
+          <img src="images/shop-clothing.jpg" alt="" class="img-store" />
+          <h2 class="h2">TO OUR STORE</h2>
+          <p>
+            We are excited to offer a wide selection of products for all of your
+            needs. Our friendly and knowledgeable staff are always available to
+            assist you with any questions or concerns you may have.
+          </p>
+          <a href="#" class="btn-find-str">Find Store</a>
+        </section>
+
+        <section class="ofc-online-stores">
+          <h2>Official Online Store</h2>
+          <div class="img-ofc-store">
+            <img src="images/tokopedia.png" alt="" class="ofc-store" />
+            <img src="images/shopee.png" alt="" class="ofc-store" />
+            <img src="images/Lazada.png" alt="" class="ofc-store" />
+            <img src="images/Bukalapak.png" alt="" class="ofc-store" />
+          </div>
+        </section>
+
+        <section class="follow-us">
+          <h2>Follow Us</h2>
+          <p>@avenue.id</p>
+          <div class="container">
+            <div id="grid"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="flex-footer">
+          <ul class="section-footer sosmed">
+            <li>Follow us on</li>
+            <li>
+              <a href="#"><img src="images/twitter.png" alt="twitter" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/facebook.png" alt="facebook" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/instagram.png" alt="instagram" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/pinterest.png" alt="pinterest" /></a>
+            </li>
+          </ul>
+          <ul class="section-footer">
+            <li>{{titleWeb}}</li>
+            <li>Jl. Sawangan No.xx</li>
+            <li>avenue@info.com</li>
+            <li>(021) 2552-xxxx</li>
+          </ul>
+
+          <ul class="section-footer">
+            <li><a href="order.html">About</a></li>
+            <li><a href="order.html">Collections</a></li>
+            <li><a href="order.html">contact</a></li>
+          </ul>
+          <ul class="section-footer">
+            <li><a href="order.html">Men</a></li>
+            <li><a href="order.html">Women</a></li>
+            <li><a href="order.html">Kid</a></li>
+          </ul>
+          <ul class="section-footer">
+            <li><a href="order.html">Tokopedia</a></li>
+            <li><a href="order.html">Bukalapak</a></li>
+            <li><a href="order.html">Shopee</a></li>
+            <li><a href="order.html">Lazada</a></li>
+          </ul>
+        </div>
+        <p class="title-footer">{{titleWeb}}</p>
+        <p>Copyright © 2021 MinumanQ. All Rights Reserved.</p>
+      </footer>
+
+      <script src="./js/main.js"></script>
+    </div>
+  </body>
+</html>
