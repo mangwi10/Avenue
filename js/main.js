@@ -62,7 +62,7 @@ var content = new Vue({
       if (value === this.sizeShirt[0]) {
         this.stock = 10;
       } else if (value === this.sizeShirt[1]) {
-        this.stock = 5;
+        this.stock = 3;
       } else if (value === this.sizeShirt[2]) {
         this.stock = 0;
       } else if (value === this.sizeShirt[3]) {

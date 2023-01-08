@@ -104,7 +104,21 @@
 
               <div class="stock">
                 <h3>Stock :</h3>
-                <p><b>{{ stock }}</b></p>
+                <p v-if="stock>3" style="color: green"><b>{{ stock }}</b></p>
+                <p v-else-if="stock>=1 && stock<=3" style="color: orange">
+                  <b>{{ stock }}</b>
+                </p>
+                <p v-else style="color: red"><b>{{ stock }}</b></p>
+              </div>
+
+              <div>
+                <p v-if="stock>3" style="color: green">
+                  <b>There is lot of stock, please place an order.</b>
+                </p>
+                <p v-else-if="stock>=1 && stock<=3" style="color: orange">
+                  <b>Stock is running out, order now.</b>
+                </p>
+                <p v-else style="color: red"><b>Out of stock.</b></p>
               </div>
 
               <div class="quantity">
