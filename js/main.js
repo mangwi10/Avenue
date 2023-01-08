@@ -2,62 +2,90 @@ var content = new Vue({
   el: "#content",
   data: {
     titleWeb: "Avenue",
-    compStore: "component/store.html",
-    compOrder: "component/order.html",
-    latestArrivalsProduct: [
-      "Red Blazer",
-      "Black Shirt",
-      "Jacket Jeans",
-      "Cream Blazer",
-    ],
-    latestArrivalsImg: [
-      "images/woman1.jpg",
-      "images/jacket-jeans.jpg",
-      "images/jacket2.jpg",
-      "images/woman2.jpg",
+    compOrder: "order.html",
+    productsAvenue: [
+      {
+        id: 1,
+        name: "Red Blazer",
+        price: 500000,
+        img: "images/woman1.jpg",
+      },
+      {
+        id: 2,
+        name: "Black Shirt",
+        price: 300000,
+        img: "images/jacket-jeans.jpg",
+      },
+      {
+        id: 3,
+        name: "Jacket Jeans",
+        price: 500000,
+        img: "images/jacket2.jpg",
+      },
+      {
+        id: 4,
+        name: "Cream Blazer",
+        price: 800000,
+        img: "images/woman2.jpg",
+      },
     ],
     altTextLatest: "Latest Arrivals",
-    collectionsImg: [
-      "images/man-collection.jpg",
-      "images/women-collection.jpg",
-      "images/child-collection.jpg",
+    collectionsAvenue: [
+      {
+        name: "Men",
+        img: "images/man-collection.jpg",
+      },
+      {
+        name: "Women",
+        img: "images/women-collection.jpg",
+      },
+      {
+        name: "Kid",
+        img: "images/child-collection.jpg",
+      },
     ],
-    altTextCollections: ["Men", "Women", "Kid"],
-    seasonClothImg: "images/winter.jpg",
-    seasonClothAlt: "winter",
-    seasonClothText: "Winter Is Coming",
-    storeOnlineImg: [
-      "images/tokopedia.png",
-      "images/shopee.png",
-      "images/Lazada.png",
-      "images/Bukalapak.png",
+    seasonCloth: {
+      text: "Winter Is Coming",
+      alt: "Winter",
+      img: "images/winter.jpg",
+    },
+    storeOnline: [
+      { alt: "Tokopedia", img: "images/tokopedia.png" },
+      { alt: "Shopee", img: "images/shopee.png" },
+      { alt: "Lazada", img: "images/Lazada.png" },
+      { alt: "Bukalapak", img: "images/Bukalapak.png" },
     ],
-    storeOnlineAlt: "Official Store",
-    socmedImg: [
-      "images/twitter.png",
-      "images/facebook.png",
-      "images/instagram.png",
-      "images/pinterest.png",
+    socmed: [
+      { alt: "Twitter", img: "images/twitter.png" },
+      { alt: "Facebook", img: "images/facebook.png" },
+      { alt: "Instagram", img: "images/instagram.png" },
+      { alt: "Pinterest", img: "images/pinterest.png" },
     ],
-    socmedAlt: ["Twitter", "Facebook", "Instagram", "Pinterest"],
     colorRed: "red",
     // Order.html
     price: "500000",
     sizeShirt: ["S", "M", "L", "XL"],
     choosenSizeShirt: "S",
-    cart: 0,
+    cart: [],
     stock: 10,
     availability: true,
-    qty: 0,
+    qty: 1,
     plusMessage:
       "Klik tombol ini atau tekan tombol panah ke atas pada kolom disamping!",
     minusMessage:
       "Klik tombol ini atau tekan tombol panah ke bawah pada kolom disamping!",
+    specShirt: [
+      "Material: denim fabric",
+      "Length: waist-length",
+      "Sleeves: long",
+      "Fastening: buttons, zippers, or a combination of both",
+      "Pockets: front, sides, or chest",
+      "Style: casual, versatile",
+      "Occasions: suitable for a variety of occasions",
+    ],
+    display: "none",
   },
   methods: {
-    addToCart() {
-      this.cart += 1;
-    },
     changeVariant(value) {
       if (value === this.sizeShirt[0]) {
         this.stock = 10;
@@ -87,6 +115,32 @@ var content = new Vue({
         this.qty -= 1;
       }
     },
+    addCart() {
+      this.cart.push({
+        name: this.productsAvenue[2].name,
+        qty: this.qty,
+        size: this.choosenSizeShirt,
+        price: this.productsAvenue[2].price,
+        img: this.productsAvenue[2].img,
+        id: +new Date(),
+      });
+      this.stock -= this.qty;
+      this.resetValue();
+    },
+
+    resetValue() {
+      this.qty = 1;
+      this.choosenSizeShirt = "S";
+    },
+
+    openModal() {
+      this.display = "block";
+    },
+
+    closeModal() {
+      this.display = "none";
+    },
+
     buyNow() {
       window.location.href =
         "https://wa.me/6281558903315?text=Hallo%2C%20Saya%20ingin%20memesan%20%0AProduk%3A%20" +

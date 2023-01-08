@@ -432,7 +432,7 @@ footer {
   margin-top: 50px;
   padding: 20px 50px;
   color: white;
-  background: rgb(64, 64, 64) url(../images/pattern-shoes.png) repeat-y left;
+  background: rgb(64, 64, 64);
   background-size: 80px;
 }
 

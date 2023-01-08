@@ -16,9 +16,9 @@
           <div class="dropdown">
             <a class="dropbtn">Collections</a>
             <div class="dropdown-content">
-              <a :href="compStore">Men</a>
-              <a :href="compStore">Women</a>
-              <a :href="compStore">kid</a>
+              <a :href="compOrder">Men</a>
+              <a :href="compOrder">Women</a>
+              <a :href="compOrder">kid</a>
             </div>
           </div>
           <a href="#">About</a>
@@ -26,9 +26,9 @@
         </div>
         <h1>{{titleWeb}}<span :style="{color:colorRed}">.</span></h1>
         <div class="nav-right">
-          <a :href="compStore">Store</a>
+          <a :href="compOrder">Store</a>
           <a href="#">Account</a>
-          <a href="#">Bag | {{cart}}</a>
+          <a @click="openModal">Bag | {{cart.length}}</a>
         </div>
       </nav>
 
@@ -36,11 +36,11 @@
         <h2>Detail Produk</h2>
         <div class="container-detail">
           <div class="detail-img">
-            <img :src="latestArrivalsImg[2]" :alt="latestArrivalsProduct[2]" />
+            <img :src="productsAvenue[2].img" :alt="productsAvenue[2].name" />
           </div>
           <div class="text-detail">
-            <h3 class="orange title-detail">{{latestArrivalsProduct[2]}}</h3>
-            <p class="price">Rp. {{price}}</p>
+            <h3 class="orange title-detail">{{productsAvenue[2].name}}</h3>
+            <p class="price">Rp. {{productsAvenue[2].price}}</p>
             <p class="desc-detail">
               Make your days more simply with Avenue proudly presents Avenue's
               Jacket Edition. A jeans jacket is a type of outerwear made from
@@ -56,13 +56,7 @@
             <div class="spek-size">
               <h3>Specification</h3>
               <ul>
-                <li>Material: denim fabric</li>
-                <li>Length: waist-length</li>
-                <li>Sleeves: long</li>
-                <li>Fastening: buttons, zippers, or a combination of both</li>
-                <li>Pockets: front, sides, or chest</li>
-                <li>Style: casual, versatile</li>
-                <li>Occasions: suitable for a variety of occasions</li>
+                <li v-for="spec in specShirt">{{spec}}</li>
               </ul>
 
               <div class="size-box">
@@ -143,7 +137,7 @@
               <hr />
 
               <div class="container-button">
-                <button @click="addToCart" id="cart" class="buyButton">
+                <button @click="addCart" id="cart" class="buyButton">
                   ADD CART
                 </button>
 
@@ -158,65 +152,33 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="container-related-produk">
-          <h3>Related Produk</h3>
-
-          <div class="list-produk">
-            <div class="produk">
-              <img src="images/sneaker-1.jpg" alt="pink sneaker" />
-              <div class="produk-text">
-                <p><b>Sport Running Pink</b></p>
-                <p>Rp. 500.000</p>
-                <a href="detail.html">Detail</a>
-              </div>
-            </div>
-
-            <div class="produk">
-              <img src="images/sneaker-2.jpg" alt="pink sneaker" />
-              <div class="produk-text">
-                <p><b>Sport running Blue</b></p>
-                <p>Rp. 500.000</p>
-                <a href="detail.html">Detail</a>
-              </div>
-            </div>
-
-            <div class="produk">
-              <img src="images/sneaker-3.jpg" alt="pink sneaker" />
-              <div class="produk-text">
-                <p><b>Sneaker Grey</b></p>
-                <p>Rp. 1000.000</p>
-                <a href="detail.html">Detail</a>
-              </div>
-            </div>
-
-            <div class="produk">
-              <img src="images/sneaker-4.jpg" alt="pink sneaker" />
-              <div class="produk-text">
-                <p><b>Sneaker Blue</b></p>
-                <p>Rp. 1000.000</p>
-                <a href="detail.html">Detail</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </main>
+
+      <div id="myModal" class="modal" :style="{display:display}">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" @click="closeModal">&times;</span>
+          <div
+            class="cart-list"
+            v-for="(keranjang, index) in cart"
+            :key="index"
+          >
+            <img class="modal-img" :src="keranjang.img" alt="keranjang.name" />
+            <p>{{keranjang.name}}</p>
+            <p>{{keranjang.size}}</p>
+            <p>{{keranjang.qty}}</p>
+            <p>Rp. {{keranjang.price}}</p>
+          </div>
+          <p v-if="cart<1">Cart Empty</p>
+        </div>
+      </div>
 
       <footer>
         <div class="flex-footer">
           <ul class="section-footer sosmed">
             <li>Follow us on</li>
-            <li>
-              <a href="#"><img :src="socmedImg[0]" :alt="socmedAlt[0]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[1]" :alt="socmedAlt[1]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[2]" :alt="socmedAlt[2]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[3]" :alt="socmedAlt[3]" /></a>
+            <li v-for="(media, index) in socmed" :key="index">
+              <a href="#"><img :src="media.img" :alt="media.alt" /></a>
             </li>
           </ul>
           <ul class="section-footer">
@@ -228,19 +190,19 @@
 
           <ul class="section-footer">
             <li><a href="#">About</a></li>
-            <li><a :href="compStore">Collections</a></li>
+            <li><a :href="compOrder">Collections</a></li>
             <li><a href="#">contact</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a :href="compStore">Men</a></li>
-            <li><a :href="compStore">Women</a></li>
-            <li><a :href="compStore">Kid</a></li>
+            <li><a :href="compOrder">Men</a></li>
+            <li><a :href="compOrder">Women</a></li>
+            <li><a :href="compOrder">Kid</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a :href="compStore">Tokopedia</a></li>
-            <li><a :href="compStore">Bukalapak</a></li>
-            <li><a :href="compStore">Shopee</a></li>
-            <li><a :href="compStore">Lazada</a></li>
+            <li><a :href="compOrder">Tokopedia</a></li>
+            <li><a :href="compOrder">Bukalapak</a></li>
+            <li><a :href="compOrder">Shopee</a></li>
+            <li><a :href="compOrder">Lazada</a></li>
           </ul>
         </div>
         <p class="title-footer">

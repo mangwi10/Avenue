@@ -22,9 +22,9 @@
           <div class="dropdown">
             <a class="dropbtn">Collections</a>
             <div class="dropdown-content">
-              <a :href="compStore">Men</a>
-              <a :href="compStore">Women</a>
-              <a :href="compStore">kid</a>
+              <a :href="compOrder">Men</a>
+              <a :href="compOrder">Women</a>
+              <a :href="compOrder">kid</a>
             </div>
           </div>
           <a href="#">About</a>
@@ -32,7 +32,7 @@
         </div>
         <h1>{{titleWeb}}<span :style="{color:colorRed}">.</span></h1>
         <div class="nav-right">
-          <a :href="compStore">Store</a>
+          <a :href="compOrder">Store</a>
           <a href="#">Account</a>
           <a href="#">Bag | 0</a>
         </div>
@@ -47,7 +47,7 @@
               <span class="box-text">everyone.</span>
             </p>
             <div class="button-order">
-              <a :href="compStore">SHOP NOW</a>
+              <a :href="compOrder">SHOP NOW</a>
             </div>
           </div>
         </div>
@@ -60,27 +60,16 @@
               <h2>Latest Arrivals</h2>
               <div>
                 <p>Our latest product to support your daily.</p>
-                <a class="btn-more" :href="compStore">More>></a>
+                <a class="btn-more" :href="compOrder">More>></a>
               </div>
             </div>
-            <div class="product">
-              <img :src="latestArrivalsImg[0]" :alt="altTextLatest" />
-              <p>{{latestArrivalsProduct[0]}}</p>
-              <a class="btn-detail" :href="compOrder">Details</a>
-            </div>
-            <div class="product">
-              <img :src="latestArrivalsImg[1]" :alt="altTextLatest" />
-              <p>{{latestArrivalsProduct[1]}}</p>
-              <a class="btn-detail" :href="compOrder">Details</a>
-            </div>
-            <div class="product">
-              <img :src="latestArrivalsImg[2]" :alt="altTextLatest" />
-              <p>{{latestArrivalsProduct[2]}}</p>
-              <a class="btn-detail" :href="compOrder">Details</a>
-            </div>
-            <div class="product">
-              <img :src="latestArrivalsImg[3]" :alt="altTextLatest" />
-              <p>{{latestArrivalsProduct[3]}}</p>
+            <div
+              class="product"
+              v-for="(product, value, index) in productsAvenue"
+              :key="index"
+            >
+              <img :src="product.img" :alt="product.name" />
+              <p>{{product.name}}</p>
               <a class="btn-detail" :href="compOrder">Details</a>
             </div>
           </div>
@@ -95,31 +84,31 @@
             <div class="item men">
               <img
                 class="img-item"
-                :src="collectionsImg[0]"
-                :alt="altTextCollections[0]"
+                :src="collectionsAvenue[0].img"
+                :alt="collectionsAvenue[0].alt"
               />
               <a class="btn-detail" href="detail.html"
-                >{{altTextCollections[0]}}</a
+                >{{collectionsAvenue[0].name}}</a
               >
             </div>
             <div class="item women">
               <img
                 class="img-item"
-                :src="collectionsImg[1]"
-                :alt="altTextCollections[1]"
+                :src="collectionsAvenue[1].img"
+                :alt="collectionsAvenue[1].alt"
               />
               <a class="btn-detail" href="detail.html"
-                >{{altTextCollections[1]}}</a
+                >{{collectionsAvenue[1].name}}</a
               >
             </div>
             <div class="item kid">
               <img
                 class="img-item"
-                :src="collectionsImg[2]"
-                :alt="altTextCollections[2]"
+                :src="collectionsAvenue[2].img"
+                :alt="collectionsAvenue[2].alt"
               />
               <a class="btn-detail" href="detail.html"
-                >{{altTextCollections[2]}}</a
+                >{{collectionsAvenue[2].name}}</a
               >
             </div>
           </div>
@@ -137,9 +126,9 @@
 
         <section>
           <div class="cloth-season">
-            <img :src="seasonClothImg" :alt="seasonClothAlt" />
-            <p>{{seasonClothText}}</p>
-            <a :href="compStore">Shop Now >></a>
+            <img :src="seasonCloth.img" :alt="seasonCloth.alt" />
+            <p>{{seasonCloth.text}}</p>
+            <a :href="compOrder">Shop Now >></a>
           </div>
         </section>
 
@@ -158,23 +147,10 @@
           <h2>Official Online Store</h2>
           <div class="img-ofc-store">
             <img
-              :src="storeOnlineImg[0]"
-              :alt="storeOnlineAlt"
-              class="ofc-store"
-            />
-            <img
-              :src="storeOnlineImg[1]"
-              :alt="storeOnlineAlt"
-              class="ofc-store"
-            />
-            <img
-              :src="storeOnlineImg[2]"
-              :alt="storeOnlineAlt"
-              class="ofc-store"
-            />
-            <img
-              :src="storeOnlineImg[3]"
-              :alt="storeOnlineAlt"
+              v-for="(store, index) in storeOnline"
+              :key="index"
+              :src="store.img"
+              :alt="store.alt"
               class="ofc-store"
             />
           </div>
@@ -193,17 +169,8 @@
         <div class="flex-footer">
           <ul class="section-footer sosmed">
             <li>Follow us on</li>
-            <li>
-              <a href="#"><img :src="socmedImg[0]" :alt="socmedAlt[0]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[1]" :alt="socmedAlt[1]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[2]" :alt="socmedAlt[2]" /></a>
-            </li>
-            <li>
-              <a href="#"><img :src="socmedImg[3]" :alt="socmedAlt[3]" /></a>
+            <li v-for="(media, index) in socmed" :key="index">
+              <a href="#"><img :src="media.img" :alt="media.alt" /></a>
             </li>
           </ul>
           <ul class="section-footer">
@@ -215,19 +182,19 @@
 
           <ul class="section-footer">
             <li><a href="#">About</a></li>
-            <li><a :href="compStore">Collections</a></li>
+            <li><a :href="compOrder">Collections</a></li>
             <li><a href="#">contact</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a :href="compStore">Men</a></li>
-            <li><a :href="compStore">Women</a></li>
-            <li><a :href="compStore">Kid</a></li>
+            <li><a :href="compOrder">Men</a></li>
+            <li><a :href="compOrder">Women</a></li>
+            <li><a :href="compOrder">Kid</a></li>
           </ul>
           <ul class="section-footer">
-            <li><a :href="compStore">Tokopedia</a></li>
-            <li><a :href="compStore">Bukalapak</a></li>
-            <li><a :href="compStore">Shopee</a></li>
-            <li><a :href="compStore">Lazada</a></li>
+            <li><a :href="compOrder">Tokopedia</a></li>
+            <li><a :href="compOrder">Bukalapak</a></li>
+            <li><a :href="compOrder">Shopee</a></li>
+            <li><a :href="compOrder">Lazada</a></li>
           </ul>
         </div>
         <p class="title-footer">
